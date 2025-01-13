@@ -1,0 +1,88 @@
+/* Basic styling for the body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Lighter background */
+  color: #333; /* Darker text color for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: none; /* Removed camo background for cleaner look */
+  background-color: #f4f4f4; /* Light neutral background */
+}
+
+/* Box form container */
+.form-box {
+  background-color: white; /* Lighter background for the form */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9); /* Softer, lighter shadow */
+  width: 600px;
+  height: 550px;
+  padding: 20px;
+  border: 1px solid #ddd; /* Lighter border */
+}
+
+/* Title Bar */
+.form-box .title-bar {
+  background-color: #4cadaf; /* Lighter green for freshness */
+  color: black;
+  font-style:oblique;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px 12px 0 0;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #4cadaf; /* Lighter green border */
+}
+
+/* Form elements styling */
+.form-box input, .form-box button {
+  width: 96%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc; /* Lighter border for inputs */
+  border-radius: 8px;
+  background-color: #fafafa; /* Light background for inputs */
+  color: #333; /* Dark text for inputs */
+  font-size: 14px;
+}
+
+/* Focus styles for inputs and buttons */
+.form-box input:focus, .form-box button:focus {
+  outline: none;
+  border-color: #4cadaf; /* Green focus border */
+  
+}
+
+/* Button styling */
+.form-box button {
+  background-color: #4cadaf; /* Soft green */
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+/* Button hover effect */
+.form-box button:hover {
+  background-color: #4cadaf; /* Lighter green on hover */
+}
+
+/* Placeholder styling */
+.form-box input::placeholder {
+  color: #888; /* Neutral placeholder color */
+}
+
+
+.inner-box {
+  padding: 155px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  text-align: center;
+  border-radius: 6px;
+}

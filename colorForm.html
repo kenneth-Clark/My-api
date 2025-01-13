@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Form Example</title>
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<script>
+
+  function callApi(){
+    const inputField = document.getElementById('inputId');
+    const inputValue = inputField.value.toLowerCase();
+    const apiUrl = `http://localhost:4000/color/${inputValue}`;
+    if (!inputValue || inputValue === "") {
+      alert("Please enter a color name!");
+    }
+    else{
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            return response.json().then(errorData => {
+            console.log(errorData.message);
+            throw new Error(errorData.message);
+            });
+            }
+            return response.json();
+        })
+        .then(data => {
+          changeBackgroundColor(data.hex);
+          changeHeading(data.hex);
+          console.log('Color:', data);
+        })
+        .catch(error => {
+            console.log('Error:', error);
+            alert(error);
+            changeBackgroundColor('#f9f9f9');
+            changeHeading("");
+        });
+    }
+ 
+  }
+
+  function changeBackgroundColor(hexvalue) {
+    const div = document.getElementById('innerbox');
+    div.style.backgroundColor = hexvalue;
+  }
+
+  function changeHeading(hexvalue)
+  {
+    const heading = document.getElementById('myHeading');
+    heading.innerHTML = hexvalue;
+  }
+
+</script>
+
+  <div class="form-box">
+    <div class="title-bar">Color Tool</div>
+
+    <form>
+      <input id = "inputId" type="text" placeholder="Enter Desired Color Name" required>
+      <div class="inner-box" id="innerbox">
+        <h3 id="myHeading"></h3>
+      </div>
+     
+    </form>
+
+    <button type="button" onclick ="callApi()">Check Color</button>
+
+  </div>
+
+</body>
+</html>
